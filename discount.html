@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Iterative Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container bg-dark text-white border py-2 my-4">
+            <h2 class="text-center">Narabathoju computes Discounts</h2>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row g-2">
+            <div class="col-6">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <form>
+                            <label for="form1_age">Enter Base Amount</label>
+                            <input type="number" id="form1_age" name="form1_age" value="20" class="form-control"> <br>
+
+                            <label for="form1_nick">Enter the discount percentage</label>
+                            <input type="number" id="form1_nick" name="form1_nick" value="10" class="form-control"> <br>
+
+                            <input type="button" onclick="discount()" value="Apply Discount" class="btn btn-success">
+                            <br>
+
+                            <input type="radio" id="rg1_red" name="color" value="times" onclick="chooseOp()"
+                                class="form-check-input mt-1">
+                            <label for="rg1_red">*</label> <br>
+
+
+                            <label for="rg1_blue"></label>
+                            <input type="radio" id="rg1_blue" name="color" value="divide" onclick="chooseOp()"
+                                class="form-check-input mt-1">
+                            <label for="rg1_blue">/</label> <br>
+                            
+                            <input type="radio" id="rg_green" name="color" value="exponent" onclick="chooseOp()"
+                                class="form-check-input mt-1">
+                                <label for="rg1_green">**</label>
+
+                            <p id="result"></p>
+                            <p id="calculationResult"></p>
+                        </form>
+                   
+    <script>
+        function discount() {
+            console.log("Getting from values")
+            var baseValue = document.getElementById("form1_age").value,
+                discount = document.getElementById("form1_nick").value,
+                out = document.getElementById("result");
+            var res = "", discountRes = 0;
+
+            for (var i = 1; i <= 5; i++) {
+                discountRes = (baseValue * i - ((baseValue * i) * (discount / 100)));
+                res = res + "->" + discountRes;
+            }
+            //out.innerHTML="Discounted amount for base" +baseValue+ "are" +res;
+            out.innerHTML = " Discounted amount for base" + baseValue + "are" + res;
+
+        }
+
+        function chooseOp(value) {
+            var baseValue = document.getElementById("form1_age").value,
+                discount = discount.getElementById("form1_nick").value,
+                out = document.getElementById("calculationResult");
+            var radioButtons = document.getElementsByName('color');
+
+            radioButtons.forEach(radio => {
+                if (radio.checked) {
+                    console.log(radio.value);
+                    if (radio.value == 'times') {
+                        out.innerHTML = baseValue * discount;
+                    } else if (radio.value == 'divide') {
+                        out.innerHTML = baseValue / discount;
+                    } else if (radio.value == 'exponent') {
+                        out.innerHTML = baseValue ** discount;
+
+
+                    }
+                }
+            })
+        }
+    </script>
+     </span>
+    </div>
+</div>
+</div>
+</div>
+
+</body>
+
+</html>
