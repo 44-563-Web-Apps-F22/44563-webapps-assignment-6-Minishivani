@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Musician Information</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"   
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" 
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+</head> 
+<body>
+    <div class="container-fluid">
+        <div class="container bg-dark text-white border py-2 my-4">
+<h1 class="text-center">Musician guess by Shivani</h1>
+
+    </div>
+</div>
+<h3>Getting input:</h3>
+
+<div class="container-fluid">
+    <div class="row g-2">
+        <div class="col-6">
+            <div class="input-group">
+                <span class="input-group-text">
+<form id="musician">
+    <label for="form1_age">Enter the secret musician name  </label>
+    <input type ="password" id="form1_age" name="form1_age" value="John Lennon" min=10 max=50 step=2 value=30> <br>
+    <br>
+    <label for="form1_nick">Guess the musician </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <br>
+    <input type="button" onclick="checkGuess()" value="Check the guess" class="btn btn-success btn-md">
+</form>
+</span>
+</div>
+</div>
+</div>
+</div>
+<p id="result"> </p>
+
+<script> 
+var correct=0
+var wrong=0
+var wrongRow=0;
+function checkGuess() {
+    console.log("Getting form values")
+    musicianName = document.getElementById("form1_age").value
+    guessName = document.getElementById("form1_nick").value
+
+    const result = musicianName ===guessName;
+    
+    out = document.getElementById("result")
+
+    if(result){
+        alert("You got it right")      
+        correct+=1;
+        wrongRow += 0;
+    } else {
+        alert("Wrong Musician")
+        wrong+=1;
+        wrongRow +=1;
+    }
+
+    if(wrongRow>=3) {
+        alert("Sorry, Game Over.");
+        wrongRow=0;
+        wrong=0;
+        correct=0;
+        document.getElementById("musician").reset();
+    }
+    out.innerHTML="Result:-y Correct: " +correct+ " Wrong: " +wrong;
+}
+</script>
+
+</body>
+</html> 

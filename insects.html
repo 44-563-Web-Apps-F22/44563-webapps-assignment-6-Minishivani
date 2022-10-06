@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Insects</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container bg-dark text-white border py-1 my-3">
+            <h3 class="text-center">Insects By Shivani</h3>
+
+        </div>
+    </div>
+    
+    <div class="container">
+        <img id="insectsImage" src="Ant.webp" width="100" height="100" onclick="swapImage()">
+    </div>
+
+    <script>
+        var userImage = 1;
+        function swapImage() {
+            var insectsImage = document.getElementById('insectsImage');
+            switch (userImage) {
+                case 1:
+                    insectsImage.src = "Alderflies.jpg";
+                    userImage=2;
+                    break;
+
+                case 2:
+                    insectsImage.src = "bettle.jpg";
+                    userImage=3;
+                    break;
+
+                case 3:
+                    insectsImage.src = "Ant.webp";
+                    userImage=1;
+                    break;
+                default:
+                    insectsImage.src="Ant.webp";
+                    userImage=1;
+            }
+        }
+    </script>
+</body>
+
+</html>

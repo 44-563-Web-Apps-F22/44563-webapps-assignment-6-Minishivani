@@ -1,37 +1,48 @@
 <!DOCTYPE html>
 <html>
- 
+<head>
+    <title>Musician Information</title>
+</head> 
 <body>
-
+<h1>Musician guess by Shivani</h1>
 <h2>Getting input</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
-
-    <label for="form1_nick">What is your nickname </label>
+    <label for="form1_age">Enter the secret musician name  </label>
+    <input type ="password" id="form1_age" name="form1_age" value="John Lennon" min=10 max=50 step=2 value=30> <br>
+    <br>
+    <label for="form1_nick">Guess the musician </label>
     <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
-
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <br>
+    <input type="button" onclick="checkGuess()" value="Check the guess">
 </form>
 
-
-<p id="result">This text will be replaced </p>
+<p id="result"> </p>
 
 <script> 
+var correct=0
+var wrong=0
 
-function resolveForm (){
+function checkGuess() {
     console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    musicianName = document.getElementById("form1_age").value
+    guessName = document.getElementById("form1_nick").value
+    //confirmed = confirm("Are these the values? "+musician+" and "+guessname)
+
+    const result = musicianName ===guessName;
     
     out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
+
+    if(result){
+        alert("You got it right")
+
+        correct+=1;
     } else {
-        out.innerHTML = "Values were not confirmed"
+        alert("Wrong Musician")
+
+        wrong+=1;
     }
+    out.innerHTML="Result:-y Correct: " +correct+ " Wrong: " +wrong;
 }
 </script>
 
